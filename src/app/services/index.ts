@@ -1,0 +1,22 @@
+export * from './api';
+export * from './authService';
+export * from './patentService';
+export * from './userService';
+export * from './chatService';
+export * from './notificationService';
+export * from './aiService';
+export * from './investmentService';
+export * from './fileService';
+export * from './supportService';
+export * from './adminService';
+
+export { authService } from './authService';
+export { patentService } from './patentService';
+export { userService } from './userService';
+export { chatService } from './chatService';
+export { notificationService } from './notificationService';
+export { aiService } from './aiService';
+export { investmentService } from './investmentService';
+export { fileService } from './fileService';
+export { supportService } from './supportService';
+export { adminService } from './adminService';
