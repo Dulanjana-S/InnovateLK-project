@@ -265,6 +265,27 @@ export function PatentDetailPage() {
                           </div>
                         </>
                       ) : null}
+                      {patent.documents?.length ? (
+                        <>
+                          <Separator />
+                          <div>
+                            <p className="text-sm text-gray-500 mb-2">Supporting documents</p>
+                            <div className="space-y-2">
+                              {patent.documents.map((documentUrl, index) => (
+                                <a
+                                  key={`${documentUrl}-${index}`}
+                                  href={documentUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="block text-sm font-medium text-blue-600 underline-offset-2 hover:underline"
+                                >
+                                  Open supporting file {index + 1}
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </>
+                      ) : null}
                     </CardContent>
                   </Card>
 

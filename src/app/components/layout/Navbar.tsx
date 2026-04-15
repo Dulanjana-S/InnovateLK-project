@@ -17,6 +17,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { toast } from 'sonner';
 import { chatService, notificationService } from '../../services';
 import { subscribeToCountsRefresh } from '../../utils/appEvents';
+import { getDashboardPathForRole, isAdminRole } from '../../utils/roleRouting';
 
 export function Navbar() {
   const location = useLocation();
@@ -79,11 +80,8 @@ export function Navbar() {
 
   const getDashboardLink = () => {
     if (!user) return '/';
-    if (user.role === 'Innovator') return '/innovator-dashboard';
-    if (user.role === 'Investor') return '/investor-dashboard';
-    if (user.role === 'Manufacturer') return '/manufacturer-dashboard';
-    if (user.role === 'Admin') return '/admin';
-    return '/';
+    const path = getDashboardPathForRole(user.role);
+    return path === '/login' ? '/' : path;
   };
 
   const handleLogout = () => {
@@ -98,7 +96,7 @@ export function Navbar() {
     { name: 'Browse Patents', path: '/browse' },
     { name: 'AI Assistant', path: '/ai-chatbot' },
     ...(isAuthenticated ? [{ name: 'People', path: '/people' }] : []),
-    ...(user?.role === 'Admin' ? [{ name: 'Admin Panel', path: '/admin' }] : []),
+    ...(isAdminRole(user?.role) ? [{ name: 'Admin Panel', path: '/admin' }] : []),
     { name: 'About', path: '/about' },
   ];
 
@@ -201,7 +199,7 @@ export function Navbar() {
                     <DropdownMenuItem asChild>
                       <Link to="/profile-settings" className="cursor-pointer">Profile Settings</Link>
                     </DropdownMenuItem>
-                    {user?.role !== 'Admin' ? (
+                    {!isAdminRole(user?.role) ? (
                       <>
                         {user?.role === 'Innovator' ? (
                           <DropdownMenuItem asChild>

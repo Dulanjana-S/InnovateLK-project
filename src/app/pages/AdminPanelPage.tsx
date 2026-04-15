@@ -10,6 +10,7 @@ import { Badge } from '../components/ui/badge';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { adminService, type AdminAnalytics, type AdminOverview, type Investment, type Patent, type User } from '../services';
+import { isAdminRole } from '../utils/roleRouting';
 
 const tabs = [
   { id: 'overview', label: 'Overview', icon: BarChart3 },
@@ -74,7 +75,7 @@ export function AdminPanelPage() {
         navigate('/login');
         return;
       }
-      if (user.role !== 'Admin') {
+      if (!isAdminRole(user.role)) {
         toast.error('Admin access only');
         navigate('/');
         return;
@@ -269,7 +270,7 @@ export function AdminPanelPage() {
     return <LoadingSpinner />;
   }
 
-  if (!user || user.role !== 'Admin') {
+  if (!user || !isAdminRole(user.role)) {
     return null;
   }
 

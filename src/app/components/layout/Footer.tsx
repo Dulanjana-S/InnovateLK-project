@@ -199,7 +199,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-center md:text-left">
-              &copy; 2026 InnovateLK Patent Commercialization Platform. All rights reserved.
+             Powered by  | Connecting Global Innovation Ecosystem
             </p>
             <div className="flex gap-6 text-gray-400">
               <Link to="/privacy" className="hover:text-blue-400 transition-colors">
@@ -211,7 +211,7 @@ export function Footer() {
             </div>
           </div>
           <p className="mt-4 text-gray-500 text-center">
-            Powered by AI | Connecting Global Innovation Ecosystem
+              &copy; 2026 InnovateLK Patent Commercialization Platform. All rights reserved.
           </p>
         </motion.div>
       </div>

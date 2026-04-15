@@ -47,9 +47,11 @@ export function AboutPage() {
   ];
 
   const team = [
-    { name: "Dr. Priya Wijesinghe", role: "Founder & CEO", expertise: "IP Law & Innovation" },
-    { name: "Ravi Kumar", role: "CTO", expertise: "AI & Platform Development" },
-    { name: "Sarah Chen", role: "Head of Partnerships", expertise: "Investment & VC Relations" },
+    
+    { name: "TBA", role: "HR", expertise: "Human Resources" },
+        { name: "Mr. Widana Mathisha ", role: "Founder", expertise: "InnovateLK Patent Commercialization Platform" },
+
+    { name: "TBA", role: "Manager", expertise: "Investment & VC Relations" },
   ];
 
   return (

@@ -22,7 +22,6 @@ import {
   Book,
   Video,
   FileText,
-  Users,
   Send,
   CheckCircle2,
   Lightbulb,
@@ -69,7 +68,6 @@ export function HelpSupportPage() {
     };
     void loadTickets();
   }, [isAuthenticated]);
-
   const faqs = [
     {
       category: "Getting Started",
@@ -129,22 +127,7 @@ export function HelpSupportPage() {
       badge: "Guide",
       external: false,
     },
-    {
-      title: "Demo Accounts",
-      description: "Quick access accounts for local testing.",
-      icon: Users,
-      href: "/demo-accounts",
-      badge: "Demo",
-      external: false,
-    },
-    {
-      title: "API Documentation",
-      description: "Swagger docs exposed by the backend.",
-      icon: FileText,
-      href: "/api/docs",
-      badge: "API",
-      external: true,
-    },
+  
     {
       title: "AI Assistant",
       description: "Try the built-in AI helper and patent matching tools.",

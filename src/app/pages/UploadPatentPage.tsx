@@ -94,11 +94,16 @@ export function UploadPatentPage() {
     try {
       setSubmitting(true);
       let imageUrl = formData.image;
+      const documents: string[] = [];
 
       if (selectedFile) {
         setUploadingFile(true);
         const uploaded = await fileService.uploadFile(selectedFile);
-        imageUrl = uploaded.url;
+        if (selectedFile.type.startsWith('image/')) {
+          imageUrl = uploaded.url;
+        } else {
+          documents.push(uploaded.url);
+        }
       }
 
       const patent = await patentService.createPatent({
@@ -114,6 +119,7 @@ export function UploadPatentPage() {
         investmentStage: formData.investmentStage,
         image: imageUrl,
         tags,
+        documents,
         isPublic: false,
       });
 
