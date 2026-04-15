@@ -15,6 +15,10 @@ export class PatentsService {
     private readonly notificationsService: NotificationsService,
   ) {}
 
+  private getReferenceId(value: any) {
+    return value?._id?.toString?.() || value?.toString?.() || '';
+  }
+
   private getPublicQuery(filters: any = {}) {
     const query: any = {
       isPublic: true,
@@ -44,7 +48,7 @@ export class PatentsService {
       return true;
     }
 
-    if (viewerUserId && patent.innovator.toString() === viewerUserId) {
+    if (viewerUserId && this.getReferenceId((patent as any).innovator) === viewerUserId) {
       return true;
     }
 
@@ -122,7 +126,7 @@ export class PatentsService {
       throw new NotFoundException('Patent not found');
     }
 
-    if (!(viewerRole === 'Admin' || (viewerUserId && patent.innovator.toString() === viewerUserId))) {
+    if (!(viewerRole === 'Admin' || (viewerUserId && this.getReferenceId((patent as any).innovator) === viewerUserId))) {
       patent.views += 1;
       await patent.save();
     }
