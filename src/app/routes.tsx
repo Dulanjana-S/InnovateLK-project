@@ -19,7 +19,6 @@ import { ProfileSettingsPage } from './pages/ProfileSettingsPage';
 import { MyPatentsPage } from './pages/MyPatentsPage';
 import { NotificationsPage } from './pages/NotificationsPage';
 import { HelpSupportPage } from './pages/HelpSupportPage';
-import { DemoAccountsPage } from './pages/DemoAccountsPage';
 import { DashboardRedirect } from './pages/DashboardRedirect';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsOfServicePage } from './pages/TermsOfServicePage';
@@ -44,7 +43,6 @@ export const router = createBrowserRouter([
       { path: 'ai-chatbot', Component: ChatbotPage },
       { path: 'login', Component: LoginPage },
       { path: 'register', Component: RegisterPage },
-      { path: 'demo-accounts', Component: DemoAccountsPage },
       { path: 'about', Component: AboutPage },
       { path: 'upload-patent', Component: UploadPatentPage },
       { path: 'messages', Component: MessagesPage },
